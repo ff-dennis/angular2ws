@@ -4,6 +4,8 @@
 import '@angular/platform-browser-dynamic';
 import '@angular/platform-browser';
 import '@angular/core';
+import '@angular/router';
+
 
 // RxJS 5
 // import 'rxjs/Rx';
