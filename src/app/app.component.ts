@@ -8,6 +8,7 @@ import {NavbarComponent} from './navbar/navbar.component'
         Angular 2 Blog
     </h3>
     <navbar></navbar>
+    <router-outlet></router-outlet>
     `
 })
 export class AppComponent { }
