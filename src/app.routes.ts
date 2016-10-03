@@ -6,9 +6,9 @@ import {PostsComponent} from './posts/posts.component';
 import {UserFormComponent} from './users/user-form.component';
 
 export const rootRouterConfig: Routes = [
-    { path: 'home', component: AgendaComponent },
+    { path: '/', component: AgendaComponent },
     { path: 'users', component: UsersComponent },
     { path: 'users/new', component: UserFormComponent },
     { path: 'users/:id', component: UserFormComponent },
     { path: 'posts', component: PostsComponent },
-    { path: '**', redirectTo: 'home' }];
+    { path: '**', redirectTo: 'home' }]

@@ -3,12 +3,6 @@ import {NavbarComponent} from './navbar/navbar.component'
 
 @Component({
     selector: 'app',
-    template: `
-    <h3>
-        Angular 2 Blog
-    </h3>
-    <navbar></navbar>
-    <router-outlet></router-outlet>
-    `
+    templateUrl: 'app.html' 
 })
 export class AppComponent { }

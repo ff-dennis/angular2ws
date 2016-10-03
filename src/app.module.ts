@@ -1,18 +1,16 @@
-// System Modules
-import { NgModule } from '@angular/core'
 import { BrowserModule } from "@angular/platform-browser";
-
-// Routing
+import { NgModule } from '@angular/core'
 import { RouterModule } from "@angular/router";
-import { rootRouterConfig } from "./app.routes";
 
-// Application Components
+import { rootRouterConfig } from "./app.routes";
 import { AppComponent } from "./app";
+
+// main navigation
 import { NavbarComponent } from "./navbar/navbar.component";
 import { AgendaComponent } from "./agenda/agenda.component";
 import { PostsComponent } from "./posts/posts.component";
 
-// Application Modules
+// modules
 import { UsersModule } from './users/users.module';
 
 @NgModule({
