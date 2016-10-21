@@ -7,7 +7,8 @@ import { HttpModule }          from '@angular/http';
 
 import { User }                from './user';
 import { UserFormComponent }   from './user-form.component';
-import { UsersComponent }      from './users.component';
+import { UsersOverviewComponent }      from './users.overview.component';
+import { SingleUserComponent }      from './single.user.component';
 import { UserService }         from './user.service';
 
 @NgModule({
@@ -20,11 +21,13 @@ import { UserService }         from './user.service';
     ],
     declarations: [
         UserFormComponent, 
-        UsersComponent
+        UsersOverviewComponent,
+        SingleUserComponent
     ],
     exports: [
         UserFormComponent, 
-        UsersComponent
+        UsersOverviewComponent,
+        SingleUserComponent
     ],
     providers: [
         UserService

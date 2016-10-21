@@ -10,14 +10,15 @@ import { rootRouterConfig } from "./app.routes";
 import { AppComponent } from "./app";
 import { NavbarComponent } from "./navbar/navbar.component";
 import { AgendaComponent } from "./agenda/agenda.component";
-import { PostsComponent } from "./posts/posts.component";
+import { NotFoundComponent } from './notfound.component';
 
 // Application Modules
 import { UsersModule } from './users/users.module';
+import { PostsModule } from './posts/posts.module';
 
 @NgModule({
-  declarations: [AppComponent, NavbarComponent, AgendaComponent, PostsComponent],
-  imports: [BrowserModule, RouterModule.forRoot(rootRouterConfig), UsersModule],
+  declarations: [AppComponent, NavbarComponent, AgendaComponent, NotFoundComponent],
+  imports: [BrowserModule, RouterModule.forRoot(rootRouterConfig), UsersModule, PostsModule],
   bootstrap: [AppComponent],
   providers: []
 })

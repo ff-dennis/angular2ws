@@ -1,0 +1,10 @@
+<td>{{ _user.name }}</td>
+<td>{{ _user.email }}</td>
+<td>
+    <a [routerLink]="['/users', _user.id]">
+        <i class="glyphicon glyphicon-edit"></i>
+    </a>
+</td>
+<td>
+    <i (click)="deleteUser()" class="glyphicon glyphicon-remove"></i>
+</td>

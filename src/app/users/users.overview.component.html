@@ -18,17 +18,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let user of users">
-                    <td>{{ user.name }}</td>
-                    <td>{{ user.email }}</td>
-                    <td>
-                        <a [routerLink]="['/users', user.id]">
-                            <i class="glyphicon glyphicon-edit"></i>
-                        </a>
-                    </td>
-                    <td>
-                        <i (click)="deleteUser(user)" class="glyphicon glyphicon-remove"></i>
-                    </td>
+                <tr *ngFor="let user of users" single-user [user]="user" (userDeleted)="deleteUser($event)">
                 </tr>
             </tbody>
         </table>

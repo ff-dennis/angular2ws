@@ -2,14 +2,15 @@ import { Component, OnInit } from '@angular/core';
 
 import { UserService } from './user.service';
 import { User } from './user';
+import { SingleUserComponent } from './single.user.component';
 
 @Component({
-	selector: 'users',
-	templateUrl: 'users.component.html',
+	selector: 'users-overview',
+	templateUrl: 'users.overview.component.html',
 	styles: ['i.glyphicon.glyphicon-remove { cursor: pointer; cursor: hand; }']
 })
 
-export class UsersComponent implements OnInit {
+export class UsersOverviewComponent implements OnInit {
 
 	users: User[];
 	usersLoading = false;
