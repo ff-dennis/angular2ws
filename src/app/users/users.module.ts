@@ -11,6 +11,10 @@ import { UsersOverviewComponent }      from './users.overview.component';
 import { SingleUserComponent }      from './single.user.component';
 import { UserService }         from './user.service';
 
+import { UserHardcodedService }         from './user-hardcoded.service';
+import { UsersHardcodedComponent }         from './users-hardcoded.component';
+import { UserFormHardcodedComponent }   from './user-form-hardcoded.component';
+
 @NgModule({
     imports: [
         CommonModule,
@@ -22,15 +26,20 @@ import { UserService }         from './user.service';
     declarations: [
         UserFormComponent, 
         UsersOverviewComponent,
-        SingleUserComponent
+        SingleUserComponent,
+        UsersHardcodedComponent,
+        UserFormHardcodedComponent
     ],
     exports: [
         UserFormComponent, 
         UsersOverviewComponent,
-        SingleUserComponent
+        SingleUserComponent,
+        UsersHardcodedComponent,
+        UserFormHardcodedComponent
     ],
     providers: [
-        UserService
+        UserService,
+        UserHardcodedService
     ]
 })
 export class UsersModule { 

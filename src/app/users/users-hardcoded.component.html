@@ -1,0 +1,36 @@
+<h1> Nutzer </h1>
+<div class="row">
+    <div class="col-md-3 pull-right">
+        <a routerLink="/users/new" class="btn btn-primary btn-fab ">
+            <i class="material-icons glyphicon glyphicon-plus"></i>
+        </a>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-9">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of users">
+                    <td>{{ user.name | uppercase}}</td>
+                    <td>{{ user.email }}</td>
+                    <td>
+                        <a [routerLink]="['/users-hardcoded', user.id]">
+                            <i class="glyphicon glyphicon-edit"></i>
+                        </a>
+                    </td>
+                    <td>
+                        <i (click)="deleteUser(user)" class="glyphicon glyphicon-remove"></i>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
