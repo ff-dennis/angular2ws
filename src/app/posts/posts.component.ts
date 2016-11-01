@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PostService } from './post.service';
-import { UserService } from '../users/user.service';
+import { UserHardcodedService } from '../users/user-hardcoded.service';
 import { User } from '../users/user';
 import { Post } from './post';
 
@@ -15,7 +15,7 @@ export class PostsComponent {
 	posts: Post[];
 	postsLoading = false;
 
-	constructor(private _postService: PostService, private _userService: UserService) { }
+	constructor(private _postService: PostService, private _userService: UserHardcodedService) { }
 
 	ngOnInit() {
 		this._postService.getPosts()
