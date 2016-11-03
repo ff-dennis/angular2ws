@@ -20,19 +20,19 @@ export class UserFormHardcodedComponent implements OnInit {
         private _route: ActivatedRoute,
         private _userService: UserHardcodedService
     ) {
-        this.userForm = fb.group({
-            //formControlName: [ formControlConfig initialisation like {value: 'n/a', disabled: true}, sync validator, async validator]
-            name: ['', Validators.required],
-            email: ['', Validators.compose([Validators.required, CustomValidators.email])],
-            phone: [],
-            avatar: ['', Validators.required],
-            address: fb.group({
-                street: ['', Validators.required],
-                streetnumber: ['', Validators.compose([Validators.required, Validators.pattern("[0-9]+")])],
-                city: ['', Validators.compose([Validators.required, Validators.pattern("[a-zA-ZüÜöÖäÄ ]*")])],
-                zipcode: ['', Validators.compose([Validators.required, Validators.pattern("[0-9]{5}")])]
-            })
-        });
+        // this.userForm = fb.group({
+        //     //formControlName: [ formControlConfig initialisation like {value: 'n/a', disabled: true}, sync validator, async validator]
+        //     name: ['', Validators.required],
+        //     email: ['', Validators.compose([Validators.required, CustomValidators.email])],
+        //     phone: [],
+        //     avatar: ['', Validators.required],
+        //     address: fb.group({
+        //         street: ['', Validators.required],
+        //         streetnumber: ['', Validators.compose([Validators.required, Validators.pattern("[0-9]+")])],
+        //         city: ['', Validators.compose([Validators.required, Validators.pattern("[a-zA-ZüÜöÖäÄ ]*")])],
+        //         zipcode: ['', Validators.compose([Validators.required, Validators.pattern("[0-9]{5}")])]
+        //     })
+        // });
     }
 
     ngOnInit() {

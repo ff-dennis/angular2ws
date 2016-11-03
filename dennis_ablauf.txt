@@ -1,0 +1,20 @@
+2.1
+	UsersComponent JS: Methode initUsers hinzufügen (2 User!)
+	UsersComponent HTML: Tabelle einfügen mit foreach <tr>
+
+2.5	
+	UsersComponent JS: 3. Users "Homeless" ohne Adresse anlegen
+	UserComponent HTML: Spalte City hinzufügen - erste ohne (NPE), dann *ngIf, dann mit Elvis
+	UserComponent HTML: Name in UpperCase darstellen
+	UserComponent HTML: Alle Frankfurter highlighten (tr background color)
+	UserComponent HTML: Alle Offenbacher ausblenden (*ngIf)
+
+3.1
+	UserFormComponent: Anlegen, Route (eigene, ohne Param!), Button in UsersComponent
+	UserFormComponent HTML: Form erstellen mit Feldern ohne Validatoren via HTML:
+		- ID, Name, E-Mail, Phone
+	UserFormComponent HTML: Name ist Required, Fehlermeldung anzeigen		
+	UserFormComponent HTML: RegEx für Telefonnummer, mit Fehlermeldung
+	UserFormComponent HTML: Speichern-Button erstellen
+	UserService: Neue Methoden zum adden eines Users in fester Liste
+

@@ -10,6 +10,7 @@ import {UserFormHardcodedComponent} from './users/user-form-hardcoded.component'
 export const rootRouterConfig: Routes = [
     { path: 'home', component: AgendaComponent },
     { path: 'users-hardcoded', component: UsersHardcodedComponent },
+    { path: 'users-hardcoded/new', component: UserFormHardcodedComponent },
     { path: 'users-hardcoded/:id', component: UserFormHardcodedComponent },
     { path: 'posts', component: PostsComponent },
     { path: 'not-found', component: NotFoundComponent },

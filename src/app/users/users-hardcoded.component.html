@@ -1,7 +1,7 @@
 <h1> Nutzer </h1>
 <div class="row">
     <div class="col-md-3 pull-right">
-        <a routerLink="/users/new" class="btn btn-primary btn-fab ">
+        <a routerLink="/users-hardcoded/new" class="btn btn-primary btn-fab ">
             <i class="material-icons glyphicon glyphicon-plus"></i>
         </a>
     </div>
@@ -13,6 +13,7 @@
                 <tr>
                     <th>Name</th>
                     <th>Email</th>
+                    <th>City</th>
                     <th>Edit</th>
                     <th>Delete</th>
                 </tr>
@@ -21,6 +22,7 @@
                 <tr *ngFor="let user of users">
                     <td>{{ user.name | uppercase}}</td>
                     <td>{{ user.email }}</td>
+                    <td>{{ user.address?.city}}</td>
                     <td>
                         <a [routerLink]="['/users-hardcoded', user.id]">
                             <i class="glyphicon glyphicon-edit"></i>

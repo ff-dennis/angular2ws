@@ -18,6 +18,7 @@ export class UsersHardcodedComponent implements OnInit {
 
 	ngOnInit() {
 		this.users = this._service.getUsers();
+		this.users = this.initUsers();
 		console.log("Users geladen ", this.users);
 	}
 
@@ -31,5 +32,42 @@ export class UsersHardcodedComponent implements OnInit {
 	updateUsers() {
 		this.users = this._service.getUsers();
 	}
+
+    //For use in part 1 (without service!)
+    private initUsers():User[] {
+        let christian:User = {
+            id:1,
+            email:"	christian.scheil@pentasys.de",
+            name:"Christian",
+            phone: "",
+            address : {
+                street: "Rothenburger Straße 116",
+                suite: "",
+                city: "Nürnberg",
+                zipcode: "90439",
+            }
+        };
+        let dennis:User = {
+            id: 2,
+            email:"dennis.petrick@pentasys.de",
+            name:"Dennis",
+            phone: "",
+            address : {
+                street: "Solmsstr. 41",
+                suite: "",
+                city: "Frankfurt",
+                zipcode: "60486",
+            }
+        };
+		let homeless:User = {
+			id: 3,
+            email:"",
+            name:"Nobody",
+            phone: "",
+            address : undefined
+		}
+        
+        return [christian, dennis, homeless];
+    }
 
 }
