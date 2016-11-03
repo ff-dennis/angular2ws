@@ -6,7 +6,8 @@ import { User } from './user';
 @Component({
 	selector: 'users',
 	templateUrl: 'users-hardcoded.component.html',
-	styles: ['i.glyphicon.glyphicon-remove { cursor: pointer; cursor: hand; }']
+	styles: ['i.glyphicon.glyphicon-remove { cursor: pointer; cursor: hand; }'],
+    styleUrls: ['./users.css']
 })
 
 export class UsersHardcodedComponent implements OnInit {
@@ -67,7 +68,7 @@ export class UsersHardcodedComponent implements OnInit {
             address : undefined
 		}
         
-        return [christian, dennis, homeless];
+        return [christian, dennis];
     }
 
 }
