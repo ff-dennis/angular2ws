@@ -60,8 +60,20 @@ export class UsersHardcodedComponent implements OnInit {
                 zipcode: "60486",
             }
         };
+        let offenbacher:User = {
+            id: 3,
+            email:"",
+            name:"Otto vom DWD",
+            phone: "069 - 0000",
+            address : {
+                street: "Frankfurter Str. 135",
+                suite: "",
+                city: "Offenbach",
+                zipcode: "63067",
+            }
+        };
 		let homeless:User = {
-			id: 3,
+			id: 4,
             email:"",
             name:"Nobody",
             phone: "",
