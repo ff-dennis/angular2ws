@@ -14,6 +14,8 @@
 	UserFormComponent HTML: Form erstellen mit Feldern ohne Validatoren via HTML:
 		- ID, Name, E-Mail, Phone
 		- novalidate-Tag
+	UserFormComponent HTML: Möglichkeiten zeigen (touched/untouched, pristine/dirty, valid/invalid)
+	UserFormComponent HTML: Error Objekt ausgeben | json
 	UserFormComponent HTML: Name ist Required, Fehlermeldung anzeigen		
 	UserFormComponent HTML: RegEx für Telefonnummer, mit Fehlermeldung
 	UserFormComponent HTML: Speichern-Button erstellen

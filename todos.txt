@@ -4,3 +4,6 @@
 - Post bearbeiten (Dennis)
 - single-component (Dennis)
 - Einladung mit Installationsanleitung (Dennis)
+- Validierung Template (Dennis)
+- Validierung Model (Dennis)
+- Kurz die Webseite angular.io zeigen

@@ -9,6 +9,7 @@ export class UserHardcodedService {
     private users:User[] = [];
 
     constructor() {
+        console.log("UserHardcodedService constructed");
         this.initUsers();
     }
 

@@ -4,12 +4,13 @@ import { Router, ActivatedRoute }                from '@angular/router';
 
 import { UserHardcodedService }                  from './user-hardcoded.service';
 import { User }                                  from './user';
+import { Address }                                  from './address';
 
 @Component({
-    templateUrl: 'user-form.component.html'
+    templateUrl: 'user-form-hardcoded.component.html'
 })
 export class UserFormHardcodedComponent implements OnInit {
-    userForm: FormGroup;
+    userAddressForm: FormGroup;
     title: string;
     user = new User();
 
@@ -19,19 +20,13 @@ export class UserFormHardcodedComponent implements OnInit {
         private _route: ActivatedRoute,
         private _userService: UserHardcodedService
     ) {
-        // this.userForm = fb.group({
-        //     //formControlName: [ formControlConfig initialisation like {value: 'n/a', disabled: true}, sync validator, async validator]
-        //     name: ['', Validators.required],
-        //     email: ['', Validators.compose([Validators.required, CustomValidators.email])],
-        //     phone: [],
-        //     avatar: ['', Validators.required],
-        //     address: fb.group({
-        //         street: ['', Validators.required],
-        //         streetnumber: ['', Validators.compose([Validators.required, Validators.pattern("[0-9]+")])],
-        //         city: ['', Validators.compose([Validators.required, Validators.pattern("[a-zA-ZüÜöÖäÄ ]*")])],
-        //         zipcode: ['', Validators.compose([Validators.required, Validators.pattern("[0-9]{5}")])]
-        //     })
-        // });
+        this.userAddressForm = fb.group({
+                //formControlName: [ formControlConfig initialisation like {value: 'n/a', disabled: true}, sync validator, async validator]
+                street: ['', Validators.required],
+                streetnumber: ['', Validators.compose([Validators.required, Validators.pattern("[0-9]+")])],
+                city: ['', Validators.compose([Validators.required, Validators.pattern("[a-zA-ZüÜöÖäÄ ]*")])],
+                zipcode: ['', Validators.compose([Validators.required, Validators.pattern("[0-9]{5}")])]
+        });
     }
 
     ngOnInit() {
@@ -51,17 +46,22 @@ export class UserFormHardcodedComponent implements OnInit {
         });
     }
 
+    addAdress():void {
+        this.user.address = new Address();
+    }
+
     save() {
+        console.log("Save user", this.user);
         var result;
 
-        if (this.user.id)
-            result = this._userService.updateUser(this.user);
-        else
-            result = this._userService.addUser(this.user)
+        if (this.user.id) {
+            this._userService.updateUser(this.user);
+        } else {
+             this._userService.addUser(this.user)
+        }
 
-        result.subscribe(x => {
-            // this.userForm.markAsPristine();
-            this._router.navigate(['users-hardcoded']);
-        });
+        console.log("User gespeichert: ", this._userService.getUsers());
+
+        this._router.navigate(['users-hardcoded']);
     }
 }
