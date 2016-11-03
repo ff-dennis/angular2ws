@@ -27,19 +27,31 @@ export class PostsComponent {
 			.subscribe(users => {
 				this.users = users;
 			});
-			
+
+		this.fetchPosts();
+	}
+
+	fetchPosts = () => {
 		this._postService.getPosts()
 			.subscribe(posts => {
 				this.posts = posts;
 				this.postsLoading = false;
 			});
-
-		
 	}
 
 	getUserName(post) {
 		return _.find(this.users, { id: post.userId }).name;
 
+	}
+
+	removePost(post){
+		if (confirm("Are you sure you want to delete " + post.title + "?")) {
+			this._postService.deletePost(post.id)
+				.subscribe(this.fetchPosts,
+				err => {
+					alert("Could not delete the user.");
+				});
+		}
 	}
 
 }

@@ -6,6 +6,9 @@
             <div class="panel panel-default" *ngFor="let post of posts">
                 <div class="panel-heading clearfix">
                     <h3 class="panel-title pull-left">{{ post.title }} <small>({{ post.date | date : "dd.MM.yyyy HH:mm:ss" }})</small></h3>
+                    <div (click)="removePost(post)" class="btn btn-danger pull-right">
+                        <i class="glyphicon glyphicon-remove"></i>
+                    </div>
                 </div>
                 <div class="list-group">
                     <div class="list-group-item">
