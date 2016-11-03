@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
+import { User } from './user';
 import 'rxjs/add/operator/map';
 
 @Injectable()
 export class UserService {
-    private _url = "http://172.27.2.14:3000/users";
+    private _url = "http://localhost:3000/users";
 
     constructor(private _http: Http) {
     }
@@ -14,7 +15,7 @@ export class UserService {
             .map(res => res.json());
     }
 
-    getUser(userId) {                
+    getUser(userId) {
         return this._http.get(this.getUserUrl(userId))
             .map(res => res.json());
     }
@@ -34,7 +35,7 @@ export class UserService {
             .map(res => res.json());
     }
 
-    private getUserUrl(userId) {
+    private getUserUrl(userId): string {
         return this._url + "/" + userId;
     }
 }

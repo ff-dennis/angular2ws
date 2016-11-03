@@ -4,7 +4,7 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class PostService {
-    private _url = "http://172.27.2.14:3000/posts";
+    private _url = "http://localhost:3000/posts";
 
     constructor(private _http: Http) {
     }

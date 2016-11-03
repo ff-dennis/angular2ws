@@ -1,5 +1,6 @@
 <td>{{ _user.name }}</td>
 <td>{{ _user.email }}</td>
+<td>{{ _user.address?.city }}</td>
 <td>
     <a [routerLink]="['/users', _user.id]">
         <i class="glyphicon glyphicon-edit"></i>
