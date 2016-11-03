@@ -6,7 +6,6 @@ import { User } from './user';
 @Component({
 	selector: 'users',
 	templateUrl: 'users-hardcoded.component.html',
-	styles: ['i.glyphicon.glyphicon-remove { cursor: pointer; cursor: hand; }'],
     styleUrls: ['./users.css']
 })
 
