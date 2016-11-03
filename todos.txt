@@ -1,0 +1,6 @@
+- Styles etc. ohne CDN laden (Christian)
+- Lodash einbinden (Dennis)
+- Post erstellen (Dennis)
+- Post bearbeiten (Dennis)
+- single-component (Dennis)
+- Einladung mit Installationsanleitung (Dennis)
