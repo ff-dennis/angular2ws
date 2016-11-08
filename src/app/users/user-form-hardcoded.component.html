@@ -1,82 +1,129 @@
 <h1>{{ title }}</h1>
 <div class="row">
-    <div class="col-md-5 col-md-offset-1">
-        <form class="form-horizontal" #userForm="ngForm" (ngSubmit)="save()">
+    <div class="col-md-5">
+        <form class="form-horizontal" #userForm="ngForm">
             <fieldset>
-                <legend>
-                    Benutzer
-                </legend>
-                <div class="form-group">
-                    <label class="control-label" for="name">Name</label>
-                    <input 
-                        type="text" class="form-control"
-                        [(ngModel)]="user.name" #name="ngModel"
-                        id="name" name="name" 
-                        required>
-                    <div>
-                        <span *ngIf="name.untouched">ng-untouched</span>
-                        <span *ngIf="name.touched">ng-touched</span>
-                        <span *ngIf="name.pristine">ng-pristine</span>
-                        <span *ngIf="name.dirty">ng-dirty</span>
-                        <span *ngIf="name.valid">ng-valid</span>
-                        <span *ngIf="name.invalid">ng-invalid</span>
-                    </div>
-                    <div *ngIf="name.touched && name.invalid" class="alert alert-danger">
-                        Name ist ein Pflichtfeld.
+                <div class="row form-group">
+                    <div class="col-md-12">
+                        <legend>
+                            Benutzer (Template driven)
+                        </legend>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label class="control-label" for="email">Email</label>
-                    <input 
-                        type="text" class="form-control"
-                        [(ngModel)]="user.email" #email="ngModel"
-                        id="email" name="email" 
-                        required>
-                    <div *ngIf="email.touched && email.errors?.required" class="alert alert-danger">
-                        Email-Adresse ist ein Pflichtfeld.
-                    </div>
-                    <div *ngIf="email.touched && email.errors?.invalidEmail" class="alert alert-danger">
-                        Bitte geben Sie eine korrekte Email-Adresse ein.
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label" for="phone">Telefon</label>
-                    <input 
-                        type="text" class="form-control"
-                        [(ngModel)]="user.phone" #phone="ngModel"
-                        id="phone" name="phone" 
-                        required pattern="[0-9()-/ ]+">
-                    <div *ngIf="phone.touched && phone.errors?.required" class="alert alert-danger">
-                        Telefon ist ein Pflichtfeld.
-                    </div>
-                    <div *ngIf="phone.touched && phone.errors?.pattern" class="alert alert-danger">
-                        Bitte geben Sie eine korrekte Telefonnummer ein.
+                <div class="row form-group">
+                    <div class="col-md-12">
+                        <label class="control-label" for="name">Name</label>
+                        <input 
+                            type="text" class="form-control"
+                            [(ngModel)]="user.name" #name="ngModel"
+                            id="name" name="name" 
+                            required>
+                        <div>
+                            <span *ngIf="name.untouched">ng-untouched</span>
+                            <span *ngIf="name.touched">ng-touched</span>
+                            <span *ngIf="name.pristine">ng-pristine</span>
+                            <span *ngIf="name.dirty">ng-dirty</span>
+                            <span *ngIf="name.valid">ng-valid</span>
+                            <span *ngIf="name.invalid">ng-invalid</span>
+                        </div>
+                        <div *ngIf="name.touched && name.invalid" class="alert alert-danger">
+                            Name ist ein Pflichtfeld.
+                        </div>
                     </div>
                 </div>
-                <button [disabled]="userForm.invalid" (click)="save()" class="btn btn-raised btn-primary">
-                    Speichern
-                </button>
+                <div class="row form-group">
+                    <div class="col-md-12">
+                        <label class="control-label" for="email">Email</label>
+                        <input 
+                            type="text" class="form-control"
+                            [(ngModel)]="user.email" #email="ngModel"
+                            id="email" name="email" 
+                            required>
+                        <div *ngIf="email.touched && email.errors?.required" class="alert alert-danger">
+                            Email-Adresse ist ein Pflichtfeld.
+                        </div>
+                        <div *ngIf="email.touched && email.errors?.invalidEmail" class="alert alert-danger">
+                            Bitte geben Sie eine korrekte Email-Adresse ein.
+                        </div>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-md-12">
+                        <label class="control-label" for="phone">Telefon</label>
+                        <input 
+                            type="text" class="form-control"
+                            [(ngModel)]="user.phone" #phone="ngModel"
+                            id="phone" name="phone" 
+                            required pattern="[0-9()-/ ]+">
+                        <div *ngIf="phone.touched && phone.errors?.required" class="alert alert-danger">
+                            Telefon ist ein Pflichtfeld.
+                        </div>
+                        <div *ngIf="phone.touched && phone.errors?.pattern" class="alert alert-danger">
+                            Bitte geben Sie eine korrekte Telefonnummer ein.
+                        </div>
+                    </div>
+                </div>
             </fieldset>
         </form>
     </div>
     <div class="col-md-5 col-md-offset-1">
-        <form [formGroup]="userAddressForm">
+        <button (click)="addAdress()" *ngIf="!user.address" class="btn btn-raised btn-primary">
+            Adresse hinzufügen
+        </button>
+        <form class="form-horizontal" [formGroup]="userAddressForm" *ngIf="!!user.address">
             <fieldset>
-                <legend>
-                    Adresse
-                </legend>
-                <button (click)="addAdress()" *ngIf="!user.address" class="btn btn-raised btn-primary">
-                    Adresse hinzufügen
-                </button>
-                <div *ngIf="!!user.address">
-                    <div class="form-group label-floating">
-                        <label class="control-label" for="city">City</label>
-                        <input [(ngModel)]="user.address.city" id="city" formControlName="city" type="text" class="form-control">
-                        <div *ngIf="userAddressForm.controls.city.touched && userAddressForm.controls.city.errors?.required" class="alert alert-danger">
-                            City ist ein Pflichtfeld.
+                <div class="row form-group">
+                    <div class="col-md-12">
+                        <legend>
+                            Adresse (Model driven)
+                        </legend>
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="row form-group">
+                        <div class="col-md-12">
+                            <label class="control-label" for="street">Street</label>
+                            <input [(ngModel)]="user.address.street" id="street" formControlName="street" type="text" class="form-control">
+                            <div *ngIf="userAddressForm.controls.street.touched && userAddressForm.controls.street.errors?.required" class="alert alert-danger">
+                                Street ist ein Pflichtfeld.
+                            </div>
                         </div>
-                        <div *ngIf="userAddressForm.controls.city.touched && userAddressForm.controls.city.errors?.pattern" class="alert alert-danger">
-                            Üngültige Zeichen verwendet.
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-12">
+                            <label class="control-label" for="streetnumber">Streetnumber</label>
+                            <input [(ngModel)]="user.address.streetnumber" id="streetnumber" formControlName="streetnumber" type="text" class="form-control">
+                            <div *ngIf="userAddressForm.controls.streetnumber.touched && userAddressForm.controls.streetnumber.errors?.required" class="alert alert-danger">
+                                Streetnumber ist ein Pflichtfeld.
+                            </div>
+                            <div *ngIf="userAddressForm.controls.streetnumber.touched && userAddressForm.controls.streetnumber.errors?.pattern" class="alert alert-danger">
+                                Die Hausnummer darf nur aus Zahlen und Kleinbuchstaben bestehen.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-12">
+                            <label class="control-label" for="zipcode">Zipcode</label>
+                            <input [(ngModel)]="user.address.zipcode" id="zipcode" formControlName="zipcode" type="text" class="form-control">
+                            <div *ngIf="userAddressForm.controls.zipcode.touched && userAddressForm.controls.zipcode.errors?.required" class="alert alert-danger">
+                                Zipcode ist ein Pflichtfeld.
+                            </div>
+                            <div *ngIf="userAddressForm.controls.zipcode.touched && userAddressForm.controls.zipcode.errors?.pattern" class="alert alert-danger">
+                                Zipcode muss exakt aus 5 Ziffern bestehen.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-12">
+                            <label class="control-label" for="city">City</label>
+                            <input [(ngModel)]="user.address.city" id="city" formControlName="city" type="text" class="form-control">
+                            <div *ngIf="userAddressForm.controls.city.touched && userAddressForm.controls.city.errors?.required" class="alert alert-danger">
+                                City ist ein Pflichtfeld.
+                            </div>
+                            <div *ngIf="userAddressForm.controls.city.touched && userAddressForm.controls.city.errors?.pattern" class="alert alert-danger">
+                                Üngültige Zeichen verwendet.
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -86,7 +133,9 @@
 </div>
 
 <div class="row">
-    <div class="col-md-10 col-md-offset-1">
-
+    <div class="col-md-11">
+        <button [disabled]="userForm.invalid || userAddressForm?.invalid" (click)="save()" class="btn btn-raised btn-primary">
+            Speichern
+        </button>
     </div>
 </div>

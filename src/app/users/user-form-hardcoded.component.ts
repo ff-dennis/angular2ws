@@ -15,18 +15,12 @@ export class UserFormHardcodedComponent implements OnInit {
     user = new User();
 
     constructor(
-        fb: FormBuilder,
+        private _fb: FormBuilder,
         private _router: Router,
         private _route: ActivatedRoute,
         private _userService: UserHardcodedService
     ) {
-        this.userAddressForm = fb.group({
-                //formControlName: [ formControlConfig initialisation like {value: 'n/a', disabled: true}, sync validator, async validator]
-                street: ['', Validators.required],
-                streetnumber: ['', Validators.compose([Validators.required, Validators.pattern("[0-9]+")])],
-                city: ['', Validators.compose([Validators.required, Validators.pattern("[a-zA-ZüÜöÖäÄ ]*")])],
-                zipcode: ['', Validators.compose([Validators.required, Validators.pattern("[0-9]{5}")])]
-        });
+       
     }
 
     ngOnInit() {
@@ -48,6 +42,13 @@ export class UserFormHardcodedComponent implements OnInit {
 
     addAdress():void {
         this.user.address = new Address();
+        this.userAddressForm = this._fb.group({
+                //formControlName: [ formControlConfig initialisation like {value: 'n/a', disabled: true}, sync validator, async validator]
+                street: ['', Validators.required],
+                streetnumber: ['', Validators.compose([Validators.required, Validators.pattern("[0-9a-z]+")])],
+                city: ['', Validators.compose([Validators.required, Validators.pattern("[a-zA-ZüÜöÖäÄ ]*")])],
+                zipcode: ['', Validators.compose([Validators.required, Validators.pattern("[0-9]{5}")])]
+        });
     }
 
     save() {
