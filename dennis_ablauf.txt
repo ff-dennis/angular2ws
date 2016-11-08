@@ -1,3 +1,19 @@
+1.1
+	POWER POINT
+
+1.3
+	package.json
+	webpack.config.js
+
+	main.browser.ts
+	polyfills.browser.ts
+	vendor.browser.ts
+
+	(app.module.ts)
+	
+	index.html
+	
+
 2.1
 	UsersComponent JS: Methode initUsers hinzufügen (2 User!)
 	UsersComponent HTML: Tabelle einfügen mit foreach <tr>

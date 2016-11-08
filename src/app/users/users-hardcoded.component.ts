@@ -18,7 +18,7 @@ export class UsersHardcodedComponent implements OnInit {
 
 	ngOnInit() {
 		this.users = this._service.getUsers();
-		this.users = this.initUsers();
+		//this.users = this.initUsers();
 		console.log("Users geladen ", this.users);
 	}
 

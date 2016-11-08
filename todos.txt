@@ -1,9 +1,11 @@
 - Styles etc. ohne CDN laden (Christian)
-- Lodash einbinden (Dennis)
 - Post erstellen (Dennis)
 - Post bearbeiten (Dennis)
-- single-component (Dennis)
+- Post single-component (Dennis)
 - Einladung mit Installationsanleitung (Dennis)
-- Validierung Template (Dennis)
-- Validierung Model (Dennis)
+- FERTIG Validierung Template (Dennis)
+- FERTIG Validierung Model (Dennis)
+
+Reminder
 - Kurz die Webseite angular.io zeigen
+- Lodash einbinden (Dennis)
