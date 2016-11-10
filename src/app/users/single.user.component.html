@@ -1,11 +1,13 @@
-<td>{{ _user.name }}</td>
+<td>{{ _user.name }}
+    <span class="tag tag-default tag-pill float-xs-right">14</span>
+</td>
 <td>{{ _user.email }}</td>
 <td>{{ _user.address?.city }}</td>
 <td>
     <a [routerLink]="['/users', _user.id]">
-        <i class="glyphicon glyphicon-edit"></i>
+        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
     </a>
 </td>
 <td>
-    <i (click)="deleteUser()" class="glyphicon glyphicon-remove"></i>
+    <i (click)="deleteUser()" class="fa fa-trash-o" aria-hidden="true"></i>
 </td>

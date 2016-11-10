@@ -4,7 +4,7 @@ import { User } from "./user"
 @Component({
 	selector: '[single-user]',
 	templateUrl: 'single.user.component.html',
-	styles: ['i.glyphicon.glyphicon-remove { cursor: pointer; cursor: hand; }']
+	styles: ['i.fa.fa-trash-o { cursor: pointer; cursor: hand; }']
 })
 
 export class SingleUserComponent {

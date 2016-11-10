@@ -21,11 +21,11 @@ module.exports = function () {
             }
         }),
 
-        posts: _.times(30, function (n) {
+        posts: _.times(50, function (n) {
             return {
                 id: n,
-                userId: n % 10,
-                body: faker.lorem.text(),
+                userId: faker.random.number(9),
+                body: faker.lorem.sentences(),
                 title: faker.random.words(),
                 date: faker.date.past()
             }

@@ -9,7 +9,8 @@ import * as _ from 'lodash';
 
 @Component({
 	selector: 'posts',
-	templateUrl: 'posts.component.html'
+	templateUrl: 'posts.component.html',
+	styles: ['a.card-link { cursor: pointer; cursor: hand; }']
 })
 
 export class PostsComponent {
@@ -42,6 +43,10 @@ export class PostsComponent {
 	getUserName(post) {
 		return _.find(this.users, { id: post.userId }).name;
 
+	}
+
+	getUserAvatar(post) {
+		return _.find(this.users, { id: post.userId }).avatar;
 	}
 
 	removePost(post){

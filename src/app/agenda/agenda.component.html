@@ -1,31 +1,21 @@
 <div class="row">
-    <div class="col-md-1"></div>
-    <div class="col-md-10">
-        <div class="panel panel-default">
-            <!-- Default panel contents -->
-            <div class="panel-heading">Angular 2 Workshop</div>
-            <div class="panel-body">
-                <p>Wir wollen heute eine kleine Beispielapplikation erstellen, um uns Stück für Stück in das Thema Angular 2
-                    einzuarbeiten. Hierfür haben wir eine clientseitige Applikation vorbereitet (Blog), die wir nach und
-                    nach zusammen entwickeln wollen. Wir führen euch in grundlegende Themen ein und werden sehen, dass man
-                    mit Angular komplette Business Applikationen entwickeln kann. Die heutige Agenda ist wie folgt:</p>
-            </div>
+	<div class="col-md-1"></div>
+	<div class="col-md-10">
+		<div class="panel panel-default">
+			<!-- Default panel contents -->
+			<div class="panel-heading">Angular 2 Workshop</div>
+			<div class="panel-body">
+				<p>Wir wollen heute eine kleine Beispielapplikation erstellen, um uns Stück für Stück in das Thema Angular 2 einzuarbeiten.
+					Hierfür haben wir eine clientseitige Applikation vorbereitet (Blog), die wir nach und nach zusammen entwickeln wollen.
+					Wir führen euch in grundlegende Themen ein und werden sehen, dass man mit Angular komplette Business Applikationen entwickeln
+					kann. Die heutige Agenda ist wie folgt:</p>
+			</div>
 
-            <!-- List group -->
-            <!--TODO Dennis P. statisches Array in Component und ngFor-->
-            <ol>
-                <li class="list-group-item">Einführung in Angular 2</li>
-                <li class="list-group-item">Aufsetzen der Entwicklungsumgebung</li>
-                <li class="list-group-item">Unsere erste Component</li>
-                <li class="list-group-item">Routing</li>
-                <li class="list-group-item">Templates, Direktiven & Pipes</li>
-                <li class="list-group-item">Server Kommunikation, Observables & Lambda Expressions</li>
-                <li class="list-group-item">Forms und Validation</li>
-                <li class="list-group-item">Module</li>
-                <li class="list-group-item">Zusammenfassung/Ausblick</li>
-            </ol>
-        </div>
-        <div class="col-md-1">
-        </div>
-    </div>
+			<ol class="list-group">
+				<li class="list-group-item-info" *ngFor="let item of agenda">{{item}}</li>
+			</ol>
+		</div>
+	</div>
+	<div class="col-md-1">
+	</div>
 </div>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
 	selector: 'agenda',
@@ -11,5 +11,17 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class AgendaComponent {
+
+	agenda = [
+		"Einführung in Angular 2",
+		"Aufsetzen der Entwicklungsumgebung",
+		"Unsere erste Component",
+		"Routing",
+		"Templates, Direktiven & Pipes",
+		"Server Kommunikation, Observables & Lambda Expressions",
+		"Forms und Validierung",
+		"Module",
+		"Zusammenfassung/Ausblick"
+	]
 
 }
