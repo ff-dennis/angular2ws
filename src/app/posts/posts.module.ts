@@ -7,6 +7,7 @@ import { HttpModule }          from '@angular/http';
 
 import { Post }                from './post';
 import { PostsComponent }      from './posts.component';
+import { PostFormComponent }   from './post-form.component';
 import { PostService }         from './post.service';
 
 @NgModule({
@@ -18,9 +19,11 @@ import { PostService }         from './post.service';
         HttpModule
     ],
     declarations: [
+        PostFormComponent,
         PostsComponent
     ],
     exports: [
+        PostFormComponent,
         PostsComponent
     ],
     providers: [

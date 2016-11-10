@@ -13,6 +13,12 @@ export class PostService {
         return this._http.get(this._url)
             .map(res => res.json());
     }
+    
+    getPostsByUser(userId) {
+        return this._http.get(this._url)
+            .map(res => res.json())
+            .filter(post => post.userId === userId);
+    }
 
     getPost(postId) {
         return this._http.get(this.getPostUrl(postId))
@@ -20,12 +26,12 @@ export class PostService {
     }
 
     addPost(post) {
-        return this._http.post(this._url, JSON.stringify(post))
+        return this._http.post(this._url, post)
             .map(res => res.json());
     }
 
     updatePost(post) {
-        return this._http.put(this.getPostUrl(post.id), JSON.stringify(post))
+        return this._http.put(this.getPostUrl(post.id), post)
             .map(res => res.json());
     }
 

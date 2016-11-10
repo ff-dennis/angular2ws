@@ -35,7 +35,9 @@ export class PostsComponent {
 	fetchPosts = () => {
 		this._postService.getPosts()
 			.subscribe(posts => {
-				this.posts = posts;
+				this.posts = posts.sort((a: Post, b: Post) => {
+					return new Date(a.date).getTime() - new Date(b.date).getTime();
+				});
 				this.postsLoading = false;
 			});
 	}
@@ -45,11 +47,17 @@ export class PostsComponent {
 
 	}
 
+	// getUserName(post) {
+	// 	return this._userService.getUser(post.userId).map(user => { return user.name });
+	// 	// return _.find(this.users, { id: post.userId }).name;
+
+	// }
+
 	getUserAvatar(post) {
 		return _.find(this.users, { id: post.userId }).avatar;
 	}
 
-	removePost(post){
+	removePost(post) {
 		if (confirm("Are you sure you want to delete " + post.title + "?")) {
 			this._postService.deletePost(post.id)
 				.subscribe(this.fetchPosts,

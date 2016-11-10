@@ -21,7 +21,7 @@ module.exports = function () {
             }
         }),
 
-        posts: _.times(50, function (n) {
+        posts: _.times(30, function (n) {
             return {
                 id: n,
                 userId: faker.random.number(9),
