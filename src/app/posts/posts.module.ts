@@ -7,7 +7,10 @@ import { HttpModule }          from '@angular/http';
 
 import { Post }                from './post';
 import { PostsComponent }      from './posts.component';
+import { SinglePostComponent } from './single-post.component';
+import { PostFormHardcodedComponent }   from './post-form-hardcoded.component';
 import { PostService }         from './post.service';
+import { PostHardcodedService }         from './post-hardcoded.service';
 
 @NgModule({
     imports: [
@@ -18,13 +21,18 @@ import { PostService }         from './post.service';
         HttpModule
     ],
     declarations: [
-        PostsComponent
+        PostFormHardcodedComponent,
+        PostsComponent,
+        SinglePostComponent
     ],
     exports: [
-        PostsComponent
+        PostFormHardcodedComponent,
+        PostsComponent,
+        SinglePostComponent
     ],
     providers: [
-        PostService
+        PostService,
+        PostHardcodedService
     ]
 })
 export class PostsModule { 
