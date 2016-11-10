@@ -36,7 +36,7 @@ export class PostsComponent {
 		this._postService.getPosts()
 			.subscribe(posts => {
 				this.posts = posts.sort((a: Post, b: Post) => {
-					return new Date(a.date).getTime() - new Date(b.date).getTime();
+					return new Date(b.date).getTime() - new Date(a.date).getTime();
 				});
 				this.postsLoading = false;
 			});
