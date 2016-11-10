@@ -44,6 +44,7 @@ export class PostsComponent {
 	removePost(post) {
 		if (confirm("Are you sure you want to delete " + post.title + "?")) {
 			this._postService.deletePost(post.id);
+			this.fetchPosts();
 		}
 	}
 
