@@ -7,6 +7,7 @@
     <div class="col-md-2">
     </div>
     <div class="col-md-8">
+        <spinner [visible]="usersLoading"></spinner>
         <table class="table table-bordered">
             <thead class="bg-faded">
                 <tr>
@@ -18,7 +19,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let user of users" single-user [user]="user" (userDeleted)="deleteUser($event)">
+                <tr *ngFor="let user of users" user [user]="user" (userDeleted)="deleteUser($event)">
                 </tr>
             </tbody>
         </table>

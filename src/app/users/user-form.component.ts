@@ -29,7 +29,7 @@ export class UserFormComponent implements OnInit {
             address: fb.group({
                 street: ['', Validators.required],
                 streetnumber: ['', Validators.compose([Validators.required, Validators.pattern("[0-9]+")])],
-                city: ['', Validators.compose([Validators.required, Validators.pattern("[a-zA-ZüÜöÖäÄ ]*")])],
+                city: ['', Validators.compose([Validators.required, Validators.pattern("[a-zA-ZüÜöÖäÄß ]*")])],
                 zipcode: ['', Validators.compose([Validators.required, Validators.pattern("[0-9]{5}")])]
             })
         });

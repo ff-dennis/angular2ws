@@ -5,7 +5,7 @@ module.exports = function () {
     var _cities = ["Frankfurt","München","Nürnberg","Stuttgart","Köln","Hamburg","Offenbach"]
 
     return {
-        users: _.times(10, function (n) {
+        users: _.times(20, function (n) {
             return {
                 id: n,
                 avatar: faker.internet.avatar(),
@@ -21,10 +21,10 @@ module.exports = function () {
             }
         }),
 
-        posts: _.times(30, function (n) {
+        posts: _.times(300, function (n) {
             return {
                 id: n,
-                userId: faker.random.number(9),
+                userId: faker.random.number(19),
                 body: faker.lorem.sentences(),
                 title: faker.random.words(),
                 date: faker.date.past()

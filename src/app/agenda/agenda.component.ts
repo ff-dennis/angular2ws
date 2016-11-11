@@ -14,7 +14,7 @@ export class AgendaComponent {
 
 	agenda = [
 		"Einführung in Angular 2",
-		"Aufsetzen der Entwicklungsumgebung",
+		"Einrichten des Projekts",
 		"Unsere erste Component",
 		"Routing",
 		"Templates, Direktiven & Pipes",

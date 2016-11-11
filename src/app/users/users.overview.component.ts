@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } 	from '@angular/core';
 
-import { UserService } from './user.service';
-import { User } from './user';
-import { SingleUserComponent } from './single.user.component';
+import { UserService } 			from './user.service';
+import { User } 				from './user';
+import { UserComponent } 		from './user.component';
 
 @Component({
 	selector: 'users-overview',
@@ -18,9 +18,9 @@ export class UsersOverviewComponent implements OnInit {
 	constructor(private _service: UserService) { }
 
 	ngOnInit() {
+		this.usersLoading = true;
 		this._service.getUsers()
 			.subscribe(users => {
-				this.usersLoading = true;
 				this.users = users;
 				this.usersLoading = false;
 			});

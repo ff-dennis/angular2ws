@@ -1,10 +1,10 @@
-import { Injectable } from '@angular/core';
-import { Http }       from '@angular/http';
-import 'rxjs/add/operator/map';
+import { Injectable }   from '@angular/core';
+import { Http }         from '@angular/http';
 
 @Injectable()
 export class PostService {
     private _url = "http://localhost:3000/posts";
+    private _pageSuffix = "?_sort=date&_order=DESC&_page=";
 
     constructor(private _http: Http) {
     }
@@ -13,7 +13,12 @@ export class PostService {
         return this._http.get(this._url)
             .map(res => res.json());
     }
-    
+
+    getSortedPostsByPage(page: number) {
+        return this._http.get(this._url + this._pageSuffix + page)
+            .map(res => res.json());
+    }
+
     getPostsByUser(userId) {
         return this._http.get(this._url)
             .map(res => res.json())

@@ -1,12 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Component, OnInit }                    from '@angular/core';
+import { FormBuilder, FormGroup, Validators }   from '@angular/forms';
+import { Router, ActivatedRoute }               from '@angular/router';
 
-import { CustomValidators } from '../validators/customValidators';
-import { PostService } from './post.service';
-import { UserService } from './../users/user.service';
-import { Post } from './post';
-import { User } from './../users/user';
+import { CustomValidators }                     from '../validators/customValidators';
+import { PostService }                          from './post.service';
+import { UserService }                          from './../users/user.service';
+import { Post }                                 from './post';
+import { User }                                 from './../users/user';
 
 @Component({
     templateUrl: 'post-form.component.html'
@@ -60,9 +60,7 @@ export class PostFormComponent implements OnInit {
     }
 
     save() {
-        var result;
-
-        console.log(this.post);
+        let result;
 
         if (this.post.id === undefined) {
             result = this._postService.addPost(this.post)
@@ -72,7 +70,6 @@ export class PostFormComponent implements OnInit {
         }
 
         result.subscribe(x => {
-            // this.userForm.markAsPristine();
             this._router.navigate(['posts']);
         });
     }

@@ -1,14 +1,17 @@
-import { NgModule }            from '@angular/core';
-import { CommonModule }        from '@angular/common';
+import { NgModule }                 from '@angular/core';
+import { CommonModule }             from '@angular/common';
 import { FormsModule, 
-         ReactiveFormsModule } from '@angular/forms';
-import { RouterModule }        from '@angular/router';
-import { HttpModule }          from '@angular/http';
+         ReactiveFormsModule }      from '@angular/forms';
+import { RouterModule }             from '@angular/router';
+import { HttpModule }               from '@angular/http';
 
-import { Post }                from './post';
-import { PostsComponent }      from './posts.component';
-import { PostFormComponent }   from './post-form.component';
-import { PostService }         from './post.service';
+import { Post }                     from './post';
+import { PostsOverviewComponent }   from './posts-overview.component';
+import { PostComponent }            from './post.component';
+import { PostFormComponent }        from './post-form.component';
+import { PostService }              from './post.service';
+
+import { SharedModule }             from './../shared/shared.module';
 
 @NgModule({
     imports: [
@@ -16,15 +19,18 @@ import { PostService }         from './post.service';
         FormsModule,
         ReactiveFormsModule,
         RouterModule,
-        HttpModule
+        HttpModule,
+        SharedModule
     ],
     declarations: [
         PostFormComponent,
-        PostsComponent
+        PostsOverviewComponent,
+        PostComponent
     ],
     exports: [
         PostFormComponent,
-        PostsComponent
+        PostsOverviewComponent,
+        PostComponent
     ],
     providers: [
         PostService
