@@ -1,7 +1,7 @@
 {
   "name": "angular2-seed",
   "version": "1.0.0",
-  "description": "A simple starter Angular2 project",
+  "description": "Beispielanwendung für Angular 2 Workshop. Basierend auf angular2-seed.",
   "scripts": {
     "typings-install": "typings install",
     "postinstall": "npm run typings-install",
@@ -11,14 +11,15 @@
     "start": "npm run server"
   },
   "contributors": [
-    "Rob Wormald <robwormald@gmail.com>",
-    "PatrickJS <github@gdi2290.com>"
+    "Dennis",
+    "Christian"
   ],
   "license": "MIT",
   "devDependencies": {
     "angular2-template-loader": "^0.4.0",
     "awesome-typescript-loader": "^1.1.1",
     "css-loader": "^0.23.1",
+    "faker": "^3.1.0",
     "raw-loader": "^0.5.1",
     "to-string-loader": "^1.1.4",
     "typescript": "^2.0.2",
