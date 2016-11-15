@@ -1,6 +1,6 @@
 import {Routes}                 from '@angular/router';
 import {AgendaComponent}        from './agenda/agenda.component';
-import {UsersOverviewComponent} from './users/users.overview.component';
+import {UsersOverviewComponent} from './users/users-overview.component';
 import {UserFormComponent}      from './users/user-form.component';
 import {PostsOverviewComponent} from './posts/posts-overview.component';
 import {PostFormComponent}      from './posts/post-form.component';

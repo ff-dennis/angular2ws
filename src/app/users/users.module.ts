@@ -7,7 +7,7 @@ import { HttpModule }               from '@angular/http';
 
 import { User }                     from './user';
 import { UserFormComponent }        from './user-form.component';
-import { UsersOverviewComponent }   from './users.overview.component';
+import { UsersOverviewComponent }   from './users-overview.component';
 import { UserComponent }            from './user.component';
 import { UserService }              from './user.service';
 

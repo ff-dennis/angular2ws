@@ -3,5 +3,5 @@ export class Post{
     date: Date;
     title: String;
     body: String;
-    userId: String;
+    userId: number;
 }

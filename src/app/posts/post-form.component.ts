@@ -34,7 +34,7 @@ export class PostFormComponent implements OnInit {
 
     ngOnInit() {
         var id = this._route.params.subscribe(params => {
-            var id = params["id"];
+            var id = +params["id"];
 
             this.title = (id == undefined) ? "Post create" : "Post edit";
 
@@ -43,34 +43,51 @@ export class PostFormComponent implements OnInit {
                 return;
             }
 
-            this._postService.getPost(id)
-                .subscribe(
-                post => this.post = post,
-                response => {
-                    if (response.status == 404) {
-                        this._router.navigate(['NotFound']);
-                    }
-                });
+            this.post = this._postService.getPost(id);
+
+            // this._postService.getPost(id)
+            //     .subscribe(
+            //     post => this.post = post,
+            //     response => {
+            //         if (response.status == 404) {
+            //             this._router.navigate(['NotFound']);
+            //         }
+            //     });
         });
 
-        this._userService.getUsers()
-            .subscribe(users => {
-                this.users = users;
-            });
+        this.users = this._userService.getUsers();
+
+        // this._userService.getUsers()
+        //     .subscribe(users => {
+        //         this.users = users;
+        //     });
     }
 
     save() {
         let result;
 
         if (this.post.id === undefined) {
-            result = this._postService.addPost(this.post)
+            this._postService.addPost(this.post)
         }
         else {
-            result = this._postService.updatePost(this.post);
+            this._postService.updatePost(this.post);
         }
 
-        result.subscribe(x => {
-            this._router.navigate(['posts']);
-        });
+        this._router.navigate(['posts']);
     }
+
+    // save() {
+    //     let result;
+
+    //     if (this.post.id === undefined) {
+    //         result = this._postService.addPost(this.post)
+    //     }
+    //     else {
+    //         result = this._postService.updatePost(this.post);
+    //     }
+
+    //     result.subscribe(x => {
+    //         this._router.navigate(['posts']);
+    //     });
+    // }
 }

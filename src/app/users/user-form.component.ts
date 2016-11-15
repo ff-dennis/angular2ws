@@ -45,14 +45,14 @@ export class UserFormComponent implements OnInit {
             if (id == undefined)
                 return;
 
-            this._userService.getUser(id)
-                .subscribe(
-                user => this.user = user,
-                response => {
-                    if (response.status == 404) {
-                        this._router.navigate(['NotFound']);
-                    }
-                });
+            // this._userService.getUser(id)
+            //     .subscribe(
+            //     user => this.user = user,
+            //     response => {
+            //         if (response.status == 404) {
+            //             this._router.navigate(['NotFound']);
+            //         }
+            //     });
         });
     }
 
