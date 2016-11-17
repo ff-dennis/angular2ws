@@ -1,12 +1,12 @@
-import { Component, OnInit }                    from '@angular/core';
-import { FormBuilder, FormGroup, Validators }   from '@angular/forms';
-import { Router, ActivatedRoute }               from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
 
-import { CustomValidators }                     from '../validators/customValidators';
-import { PostService }                          from './post.service';
-import { UserService }                          from './../users/user.service';
-import { Post }                                 from './post';
-import { User }                                 from './../users/user';
+import { CustomValidators } from '../validators/customValidators';
+import { PostService } from './post.service';
+import { UserService } from './../users/user.service';
+import { Post } from './post';
+import { User } from './../users/user';
 
 @Component({
     templateUrl: 'post-form.component.html'

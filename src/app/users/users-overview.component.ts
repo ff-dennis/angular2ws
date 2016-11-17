@@ -18,8 +18,8 @@ export class UsersOverviewComponent implements OnInit {
 	constructor(private _service: UserService) { }
 
 	ngOnInit() {
-		this.users = this._service.getUsers();
-		//this.users = this.initUsers();
+		// this.users = this._service.getUsers();
+		this.users = this.initUsers();
 		console.log("Users geladen ", this.users);
 	}
 
@@ -44,7 +44,7 @@ export class UsersOverviewComponent implements OnInit {
 			phone: "",
 			address: {
 				street: "Rothenburger Straße 116",
-				suite: "",
+				streetnumber: "116",
 				city: "Nürnberg",
 				zipcode: "90439",
 			}
@@ -57,7 +57,7 @@ export class UsersOverviewComponent implements OnInit {
 			phone: "",
 			address: {
 				street: "Solmsstr. 41",
-				suite: "",
+				streetnumber: "41",
 				city: "Frankfurt",
 				zipcode: "60486",
 			}
@@ -70,7 +70,7 @@ export class UsersOverviewComponent implements OnInit {
 			phone: "069 - 0000",
 			address: {
 				street: "Frankfurter Str. 135",
-				suite: "",
+				streetnumber: "135",
 				city: "Offenbach",
 				zipcode: "63067",
 			}
@@ -84,7 +84,7 @@ export class UsersOverviewComponent implements OnInit {
 			address: undefined
 		}
 
-		return [christian, dennis];
+		return [christian, dennis, offenbacher, homeless];
 	}
 
 
@@ -96,7 +96,6 @@ export class UsersOverviewComponent implements OnInit {
 
 	// ngOnInit() {
 	// 	this.usersLoading = true;
-	// 	// this.users = this._service.getUsers();
 	// 	this._service.getUsers()
 	// 		.subscribe(users => {
 	// 			this.users = users;
@@ -109,6 +108,9 @@ export class UsersOverviewComponent implements OnInit {
 	// 		.subscribe(users => {
 	// 			this.users = users;
 	// 			this.usersLoading = false;
+	// 		},
+	// 		err => {
+	// 			alert("Could not load users.");
 	// 		});
 	// }
 

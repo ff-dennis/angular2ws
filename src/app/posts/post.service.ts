@@ -1,5 +1,5 @@
+// import { Http }         from '@angular/http';
 import { Injectable }   from '@angular/core';
-import { Http }         from '@angular/http';
 import { Post}          from './post';
 import * as _           from 'lodash';
 
@@ -54,7 +54,7 @@ export class PostService {
             id: 3,
             date: new Date(),
             title: "3. Titel",
-            body: "Noch viel spannender Text im 3. Beitrag",
+            body: "Viel zu langer Text im 3. Beitrag. Hier sollte der User unbedingt darauf hin gewiesen werden, dass die maximale Feldlänge überschritten wird, wenn er zu viel hier rein tippt.",
             userId: 1
         }]
     }

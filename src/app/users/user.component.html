@@ -1,8 +1,8 @@
-<td>{{ _user.name }}</td>
-<td>{{ _user.email }}</td>
-<td>{{ _user.address?.city }}</td>
+<td>{{ user.name }}</td>
+<td>{{ user.email }}</td>
+<td>{{ user.address?.city }}</td>
 <td>
-    <a [routerLink]="['/users', _user.id]">
+    <a [routerLink]="['/users', user.id]">
         <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
     </a>
 </td>

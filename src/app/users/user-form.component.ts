@@ -37,13 +37,18 @@ export class UserFormComponent implements OnInit {
 
     ngOnInit() {
         var id = this._route.params.subscribe(params => {
-            var id = params["id"];
+            var id = +params["id"];
             console.log(id);
 
-            this.title = (id == undefined) ? "Nutzer anlegen" : "Nutzer bearbeiten";
+            this.title = (id == undefined) ? "User create" : "User edit";
 
-            if (id == undefined)
+            if (id == undefined) {
                 return;
+            }
+
+            console.log("Getting user", id);
+
+            this.user = this._userService.getUser(id);
 
             // this._userService.getUser(id)
             //     .subscribe(
@@ -66,9 +71,9 @@ export class UserFormComponent implements OnInit {
             result = this._userService.updateUser(this.user);
         }
 
-        result.subscribe(x => {
-            // this.userForm.markAsPristine();
-            this._router.navigate(['users']);
-        });
+        // result.subscribe(x => {
+        // this.userForm.markAsPristine();
+        this._router.navigate(['users']);
+        // });
     }
 }

@@ -30,11 +30,14 @@
                     <div *ngIf="postForm.controls.body.touched && postForm.controls.body.errors?.required" class="alert alert-danger">
                         Text ist ein Pflichtfeld.
                     </div>
-                    <div *ngIf="postForm.controls.body.touched && postForm.controls.body.errors?.maxlength" class="alert alert-danger">
+                    <div *ngIf="postForm.controls.body.errors?.maxlength" class="alert alert-danger">
                         Es sind maximal 150 Zeichen erlaubt.
                     </div>
                 </div>
             </fieldset>
+            <button routerLink="/posts" class="btn btn-raised btn-danger">
+                Abbrechen
+            </button>
             <button [disabled]="postForm.invalid" type="submit" class="btn btn-raised btn-primary">
                 Speichern
             </button>

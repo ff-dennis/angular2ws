@@ -1,17 +1,17 @@
-import { Component, OnInit } 	from '@angular/core';
-import { PostService } 			from './post.service';
-import { UserService } 			from '../users/user.service';
-import { User } 				from '../users/user';
-import { Post } 				from './post';
+import { Component, OnInit } from '@angular/core';
+import { PostService } from './post.service';
+import { UserService } from '../users/user.service';
+import { User } from '../users/user';
+import { Post } from './post';
 
-import * as _ 					from 'lodash';
+import * as _ from 'lodash';
 
 @Component({
 	selector: 'posts-overview',
 	templateUrl: 'posts-overview.component.html'
 })
 
-export class PostsOverviewComponent {
+export class PostsOverviewComponent implements OnInit {
 
 	postsLoading = false;
 	posts: Post[];
@@ -20,15 +20,11 @@ export class PostsOverviewComponent {
 
 	ngOnInit() {
 		// this.postsLoading = true;
-
 		this.fetchPosts();
 	}
 
 	fetchPosts = () => {
 		this.posts = this._postService.getPosts();
-		// posts = _.sortBy(posts, (a: Post, b: Post) => {
-		// 			return new Date(a.date).getTime() - new Date(b.date).getTime();
-		// 		});
 	}
 
 	removePost(post) {
@@ -54,7 +50,9 @@ export class PostsOverviewComponent {
 	// 				return new Date(b.date).getTime() - new Date(a.date).getTime();
 	// 			}));
 	// 		},
-	// 		null,
+	// err => {
+	// 	alert("Could not load users.");
+	// },
 	// 		() => { this.postsLoading = false; })
 	// }
 

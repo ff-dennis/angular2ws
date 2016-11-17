@@ -9,7 +9,7 @@ import { User } from "./user"
 
 export class UserComponent {
 
-	@Input('user') _user: User;
+	@Input('user') user: User;
 	@Output() userDeleted = new EventEmitter();
 
 
@@ -17,6 +17,6 @@ export class UserComponent {
 	}
 
 	deleteUser() {
-		this.userDeleted.emit(this._user);
+		this.userDeleted.emit(this.user);
 	}
 }

@@ -21,6 +21,8 @@ export class UserService {
     }
 
     getUser(userId: number) {
+        console.log("Getting User",userId,"from", this.users);
+        console.log("Returning User", _.find(this.users, { 'id': userId }));;
         return _.find(this.users, { 'id': userId });
     }
 
@@ -41,16 +43,16 @@ export class UserService {
     private initUsers(): void {
         let christian: User = this.createUser(1, "Christian", "0911 131301-0", "sc@pentasys.de");
         christian.address = {
-            street: "Rothenburger Straße 116",
-            suite: "",
+            street: "Rothenburger Straße",
+            streetnumber: "116",
             city: "Nürnberg",
             zipcode: "90439",
         };
 
         let dennis: User = this.createUser(2, "Dennis", "069 707 98 39-0", "dp@pentasys.de");
         dennis.address = {
-            street: "Solmsstr. 41",
-            suite: "",
+            street: "Solmsstr.",
+            streetnumber: "41",
             city: "Frankfurt",
             zipcode: "60486",
         };
