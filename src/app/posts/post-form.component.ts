@@ -28,7 +28,7 @@ export class PostFormComponent implements OnInit {
             //formControlName: [ formControlConfig initialisation like {value: 'n/a', disabled: true}, sync validator, async validator]
             user: [],
             title: ['', Validators.required],
-            body: ['', Validators.compose([Validators.required, Validators.maxLength(150)])]
+            body: ['', Validators.compose([Validators.required, Validators.minLength(50), Validators.maxLength(150)])]
         });
     }
 
@@ -38,56 +38,39 @@ export class PostFormComponent implements OnInit {
 
             this.title = (id == undefined) ? "Post create" : "Post edit";
 
-            if (id == undefined) {
+            if (!id) {
                 this.post.date = new Date();
                 return;
             }
 
-            this.post = this._postService.getPost(id);
-
-            // this._postService.getPost(id)
-            //     .subscribe(
-            //     post => this.post = post,
-            //     response => {
-            //         if (response.status == 404) {
-            //             this._router.navigate(['NotFound']);
-            //         }
-            //     });
+            this._postService.getPost(id)
+                .subscribe(
+                post => this.post = post,
+                response => {
+                    if (response.status == 404) {
+                        this._router.navigate(['NotFound']);
+                    }
+                });
         });
 
-        this.users = this._userService.getUsers();
-
-        // this._userService.getUsers()
-        //     .subscribe(users => {
-        //         this.users = users;
-        //     });
+        this._userService.getUsers()
+            .subscribe(users => {
+                this.users = users;
+            });
     }
 
     save() {
         let result;
 
         if (this.post.id === undefined) {
-            this._postService.addPost(this.post)
+            result = this._postService.addPost(this.post)
         }
         else {
-            this._postService.updatePost(this.post);
+            result = this._postService.updatePost(this.post);
         }
 
-        this._router.navigate(['posts']);
+        result.subscribe(x => {
+            this._router.navigate(['posts']);
+        });
     }
-
-    // save() {
-    //     let result;
-
-    //     if (this.post.id === undefined) {
-    //         result = this._postService.addPost(this.post)
-    //     }
-    //     else {
-    //         result = this._postService.updatePost(this.post);
-    //     }
-
-    //     result.subscribe(x => {
-    //         this._router.navigate(['posts']);
-    //     });
-    // }
 }

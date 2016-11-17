@@ -24,40 +24,33 @@ export class UserFormComponent implements OnInit {
             //formControlName: [ formControlConfig initialisation like {value: 'n/a', disabled: true}, sync validator, async validator]
             name: ['', Validators.required],
             email: ['', Validators.compose([Validators.required, CustomValidators.email])],
-            phone: [],
+            phone: ['', Validators.pattern("[0-9()-/\+ ]+")],
             avatar: ['', Validators.required],
-            address: fb.group({
-                street: ['', Validators.required],
-                streetnumber: ['', Validators.compose([Validators.required, Validators.pattern("[0-9]+")])],
-                city: ['', Validators.compose([Validators.required, Validators.pattern("[a-zA-ZüÜöÖäÄß ]*")])],
-                zipcode: ['', Validators.compose([Validators.required, Validators.pattern("[0-9]{5}")])]
-            })
+            street: ['', Validators.required],
+            streetnumber: ['', Validators.compose([Validators.required, Validators.pattern("[0-9]+")])],
+            city: ['', Validators.compose([Validators.required, Validators.pattern("[a-zA-ZüÜöÖäÄß ]*")])],
+            zipcode: ['', Validators.compose([Validators.required, Validators.pattern("[0-9]{5}")])]
         });
     }
 
     ngOnInit() {
         var id = this._route.params.subscribe(params => {
             var id = +params["id"];
-            console.log(id);
 
             this.title = (id == undefined) ? "User create" : "User edit";
 
-            if (id == undefined) {
+            if (!id) {
                 return;
             }
 
-            console.log("Getting user", id);
-
-            this.user = this._userService.getUser(id);
-
-            // this._userService.getUser(id)
-            //     .subscribe(
-            //     user => this.user = user,
-            //     response => {
-            //         if (response.status == 404) {
-            //             this._router.navigate(['NotFound']);
-            //         }
-            //     });
+            this._userService.getUser(id)
+                .subscribe(
+                user => this.user = user,
+                response => {
+                    if (response.status == 404) {
+                        this._router.navigate(['NotFound']);
+                    }
+                });
         });
     }
 
@@ -71,9 +64,9 @@ export class UserFormComponent implements OnInit {
             result = this._userService.updateUser(this.user);
         }
 
-        // result.subscribe(x => {
-        // this.userForm.markAsPristine();
-        this._router.navigate(['users']);
-        // });
+        result.subscribe(x => {
+            this.userForm.markAsPristine();
+            this._router.navigate(['users']);
+        });
     }
 }
